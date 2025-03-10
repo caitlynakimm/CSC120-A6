@@ -151,6 +151,7 @@ public class TrainTest {
         myTrainC1P1.boardCar(myTrainC1);
         myTrainC1P2.boardCar(myTrainC1);
         myTrainC1P1.getOffCar(myTrainC1);
+        myTrainC1P2.getOffCar(myTrainC1);
         myTrainC1P3.getOffCar(myTrainC1);
 
         myTrainC2P1.boardCar(myTrainC2);
@@ -158,7 +159,13 @@ public class TrainTest {
 
         myTrainC3P1.boardCar(myTrainC3);
 
-        assertTrue(myTrain.printManifest().contains("Esther"));
+        myTrain.printManifest();
+
+        assertEquals(2, myTrainC1.seatsRemaining());
+        assertEquals(0, myTrainC2.seatsRemaining());
+        assertEquals(1, myTrainC3.seatsRemaining());
+
+        
     }
     
 }
