@@ -7,8 +7,8 @@ public class Car implements CarRequirements {
     
     //Attributes
     private int carSeatCapacity;
-    private int remainingSeats;
-    private ArrayList<Passenger> passengersOnboard; 
+    public int remainingSeats;
+    public ArrayList<Passenger> passengersOnboard; 
 
     /**
      * Constructor for Car

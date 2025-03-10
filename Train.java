@@ -7,7 +7,7 @@ public class Train implements TrainRequirements{
 
     //Attributes
     Engine engine;
-    private ArrayList<Car> cars;
+    public ArrayList<Car> cars;
     private FuelType fuelType;
     private double fuelCapacity;
 
