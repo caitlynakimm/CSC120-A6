@@ -17,7 +17,6 @@ public class TrainTest {
         this.c2 = new Car(1);
         this.c3 = new Car(1);
         this.myTrain = new Train(FuelType.ELECTRIC, 100., 3, 2);
-
     }
 
     // Engine Tests
@@ -81,23 +80,85 @@ public class TrainTest {
     // Train Tests
     @Test
     public void testTrainConstructor() {
-        double myTrainCarNum = myTrain.cars.size(); //made ArrayList cars public
-        assertEquals(3, myTrainCarNum, .001);
+        int myTrainCarNum = myTrain.cars.size(); //made ArrayList cars public
+        assertEquals(3, myTrainCarNum);
     }
 
     @Test
     public void testTrainPassengerCount() {
-        fail();
+        Passenger myTrainC1P1 = new Passenger("Esther");
+        Passenger myTrainC1P2 = new Passenger("Jhadia");
+        Passenger myTrainC1P3 = new Passenger("Melissa");
+
+        Car myTrainC1 = myTrain.getCar(0);
+
+        myTrainC1P1.boardCar(myTrainC1);
+        myTrainC1P2.boardCar(myTrainC1);
+        myTrainC1P1.getOffCar(myTrainC1);
+        myTrainC1P3.getOffCar(myTrainC1);
+
+
+        int totalPassengerCount = myTrain.getMaxCapacity() - myTrain.seatsRemaining(); //gets total number of passengers seated on train
+        assertEquals(1, totalPassengerCount);
+        //assertEquals();
     }
 
     @Test
     public void testTrainGetCar() {
-        fail();
+        Passenger myTrainC1P1 = new Passenger("Esther");
+        Passenger myTrainC1P2 = new Passenger("Jhadia");
+        Passenger myTrainC1P3 = new Passenger("Melissa");
+
+        Car myTrainC1 = myTrain.getCar(0);
+
+        Passenger myTrainC2P1 = new Passenger("Nazifa");
+        Passenger myTrainC2P2 = new Passenger("Natalie");
+
+        Car myTrainC2 = myTrain.getCar(1);
+
+        myTrainC1P1.boardCar(myTrainC1);
+        myTrainC1P2.boardCar(myTrainC1);
+        myTrainC1P1.getOffCar(myTrainC1);
+        myTrainC1P3.getOffCar(myTrainC1);
+
+        myTrainC2P1.boardCar(myTrainC2);
+        myTrainC2P2.boardCar(myTrainC2);
+
+        assertEquals(2, myTrainC1.getCapacity());
+        assertEquals(1, myTrainC1.seatsRemaining());
+
+        assertEquals(2, myTrainC2.getCapacity());
+        assertEquals(0, myTrainC2.seatsRemaining());
     }
 
     @Test
     public void testTrainPrintManifest() {
-        fail();
+        Passenger myTrainC1P1 = new Passenger("Esther");
+        Passenger myTrainC1P2 = new Passenger("Jhadia");
+        Passenger myTrainC1P3 = new Passenger("Melissa");
+
+        Car myTrainC1 = myTrain.getCar(0);
+
+        Passenger myTrainC2P1 = new Passenger("Nazifa");
+        Passenger myTrainC2P2 = new Passenger("Natalie");
+
+        Car myTrainC2 = myTrain.getCar(1);
+
+        Passenger myTrainC3P1 = new Passenger("Jina");
+
+        Car myTrainC3 = myTrain.getCar(2);
+
+        myTrainC1P1.boardCar(myTrainC1);
+        myTrainC1P2.boardCar(myTrainC1);
+        myTrainC1P1.getOffCar(myTrainC1);
+        myTrainC1P3.getOffCar(myTrainC1);
+
+        myTrainC2P1.boardCar(myTrainC2);
+        myTrainC2P2.boardCar(myTrainC2);
+
+        myTrainC3P1.boardCar(myTrainC3);
+
+        assertTrue(myTrain.printManifest().contains("Esther"));
     }
     
 }

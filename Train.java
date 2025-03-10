@@ -103,7 +103,6 @@ public class Train implements TrainRequirements{
     }
 
     // public static void main(String[] args){
-    //     //remaining seats reset per car help
     //     Train myTrain = new Train(FuelType.ELECTRIC, 100., 3, 2);
     //     System.out.println(myTrain);
     //     System.out.println();
