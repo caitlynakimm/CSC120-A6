@@ -7,7 +7,7 @@ public class Train implements TrainRequirements{
 
     //Attributes
     Engine engine;
-    public ArrayList<Car> cars;
+    private ArrayList<Car> cars;
     private FuelType fuelType;
     private double fuelCapacity;
 
@@ -93,6 +93,10 @@ public class Train implements TrainRequirements{
             System.out.println("Car " + (i+1) + ":");
             this.getCar(i).printManifest();
         }
+    }
+
+    public int getCarCount(){
+        return cars.size(); //returns size of cars list
     }
 
     /**

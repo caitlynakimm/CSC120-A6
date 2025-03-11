@@ -61,8 +61,11 @@ public class TrainTest {
     @Test
     public void testCarAddPassenger() {
         Passenger p1 = new Passenger("Caitlyn");
+        assertFalse(c1.isOnboard(p1));
         c1.addPassenger(p1);
-        assertEquals(4, c1.seatsRemaining());
+        assertTrue(c1.isOnboard(p1));
+        double testSeatsRemaining = c1.seatsRemaining();
+        assertEquals(4, testSeatsRemaining, 001);
     }
 
     /**
@@ -77,7 +80,7 @@ public class TrainTest {
         c2.addPassenger(p1);
         c2.removePassenger(p1);
         c2.removePassenger(p1);
-        assertEquals(0, c2.passengersOnboard.size()); //checks if passenger count doesn't go negative
+        assertEquals(0, c2.getPassengerCount()); //checks if passenger count doesn't go negative
         assertFalse(c2.removePassenger(p1));
     }
 
@@ -90,7 +93,8 @@ public class TrainTest {
     public void testPassengerBoardCarWithSpace() {
         Passenger p2 = new Passenger("Jenica");
         p2.boardCar(c1);
-        assertTrue(c1.passengersOnboard.contains(p2));
+        assertTrue(c1.isOnboard(p2));
+        assertEquals(0, c1.seatsRemaining());
     }
 
     /**
@@ -102,11 +106,11 @@ public class TrainTest {
         Passenger p2 = new Passenger("Jenica");
 
         p2.boardCar(c3);
-        assertTrue(c3.passengersOnboard.contains(p2)); //confirms Jenica is onboard car 3
+        assertTrue(c3.isOnboard(p2)); //confirms Jenica is onboard car 3
         
         Passenger p3 = new Passenger("Mary");
         p3.boardCar(c3);
-        assertFalse(c3.passengersOnboard.contains(p3)); //confirms Mary is not onboard car 3 since it is full
+        assertFalse(c3.isOnboard(p3)); //confirms Mary is not onboard car 3 since it is full
         assertEquals(0, c3.seatsRemaining()); //confirms car 3 is full or has no seats
 
     }
@@ -118,7 +122,7 @@ public class TrainTest {
      */
     @Test
     public void testTrainConstructor() {
-        int myTrainCarNum = myTrain.cars.size(); //made ArrayList cars public
+        int myTrainCarNum = myTrain.getCarCount();
         assertEquals(3, myTrainCarNum);
     }
 

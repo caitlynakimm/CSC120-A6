@@ -7,8 +7,8 @@ public class Car implements CarRequirements {
     
     //Attributes
     private int carSeatCapacity;
-    public int remainingSeats;
-    public ArrayList<Passenger> passengersOnboard; 
+    private int remainingSeats;
+    private ArrayList<Passenger> passengersOnboard; 
 
     /**
      * Constructor for Car
@@ -43,9 +43,9 @@ public class Car implements CarRequirements {
         if (this.remainingSeats > 0) {
             this.remainingSeats -= 1;
             System.out.println("There are " + this.remainingSeats + " remaining seats.");
-            return passengersOnboard.add(p);
+            return Boolean.TRUE;
         } else {
-            return false;
+            return Boolean.FALSE;
         }
     }
 
@@ -58,9 +58,9 @@ public class Car implements CarRequirements {
         if (this.passengersOnboard.contains(p)){
             this.remainingSeats += 1;
             System.out.println("There are " + this.remainingSeats + " remaining seats.");
-            return passengersOnboard.remove(p);
+            return Boolean.TRUE;
         } else {
-            return false;
+            return Boolean.FALSE;
         }
     }
 
@@ -73,6 +73,18 @@ public class Car implements CarRequirements {
         } else {
             System.out.println("This car is EMPTY.");
         }
+    }
+
+    public boolean isOnboard(Passenger p){
+        return this.passengersOnboard.contains(p); //returns whether specified passenger is onboard
+    }
+
+    public ArrayList<Passenger> getPassengers(){
+        return new ArrayList<>(passengersOnboard); //returns copy of passenger list
+    }
+
+    public int getPassengerCount(){
+        return passengersOnboard.size(); //returns size of passenger list
     }
 
     /**
