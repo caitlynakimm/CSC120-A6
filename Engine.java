@@ -5,7 +5,7 @@ public class Engine implements EngineRequirements {
     
     //Attributes
     private FuelType f;
-    public double currentFuelLevel;
+    private double currentFuelLevel;
     private double maxFuelLevel = 200;
     
     /**
