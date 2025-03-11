@@ -96,7 +96,7 @@ public class Train implements TrainRequirements{
     }
 
     public int getCarCount(){
-        return cars.size(); //returns size of cars list
+        return cars.size(); //returns number of cars in cars list
     }
 
     /**

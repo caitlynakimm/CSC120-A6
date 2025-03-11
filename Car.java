@@ -43,9 +43,9 @@ public class Car implements CarRequirements {
         if (this.remainingSeats > 0) {
             this.remainingSeats -= 1;
             System.out.println("There are " + this.remainingSeats + " remaining seats.");
-            return Boolean.TRUE;
+            return passengersOnboard.add(p);
         } else {
-            return Boolean.FALSE;
+            return false;
         }
     }
 
@@ -58,9 +58,9 @@ public class Car implements CarRequirements {
         if (this.passengersOnboard.contains(p)){
             this.remainingSeats += 1;
             System.out.println("There are " + this.remainingSeats + " remaining seats.");
-            return Boolean.TRUE;
+            return passengersOnboard.remove(p);
         } else {
-            return Boolean.FALSE;
+            return false;
         }
     }
 
@@ -79,12 +79,12 @@ public class Car implements CarRequirements {
         return this.passengersOnboard.contains(p); //returns whether specified passenger is onboard
     }
 
-    public ArrayList<Passenger> getPassengers(){
-        return new ArrayList<>(passengersOnboard); //returns copy of passenger list
+    public String getPassengers(){
+        return this.passengersOnboard.toString(); //returns copy of passenger list as string
     }
 
     public int getPassengerCount(){
-        return passengersOnboard.size(); //returns size of passenger list
+        return passengersOnboard.size(); //returns number of passengers onboard
     }
 
     /**

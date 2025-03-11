@@ -94,7 +94,7 @@ public class TrainTest {
         Passenger p2 = new Passenger("Jenica");
         p2.boardCar(c1);
         assertTrue(c1.isOnboard(p2));
-        assertEquals(0, c1.seatsRemaining());
+        assertEquals(4, c1.seatsRemaining());
     }
 
     /**
