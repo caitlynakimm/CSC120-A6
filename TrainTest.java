@@ -56,7 +56,7 @@ public class TrainTest {
     // Car Tests
     /**
      * Tests Car's addPassenger method
-     * Verifies adding a passenger to a car decreases seats remaining
+     * Verifies adding a passenger to a car decreases seats remaining and passenger successfully boarded
      */
     @Test
     public void testCarAddPassenger() {

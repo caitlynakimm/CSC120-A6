@@ -76,7 +76,7 @@ public class Car implements CarRequirements {
     }
 
     public boolean isOnboard(Passenger p){
-        return this.passengersOnboard.contains(p); //returns whether specified passenger is onboard
+        return this.passengersOnboard.contains(p); //returns whether specified passenger is onboard car
     }
 
     public String getPassengers(){
@@ -84,7 +84,7 @@ public class Car implements CarRequirements {
     }
 
     public int getPassengerCount(){
-        return passengersOnboard.size(); //returns number of passengers onboard
+        return passengersOnboard.size(); //returns number of passengers onboard car
     }
 
     /**
